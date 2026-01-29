@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-
+using Shop_pv412.Services;
 namespace Shop_p412
 {
     public class Program
@@ -13,6 +13,7 @@ namespace Shop_p412
                     builder.Configuration.GetConnectionString("DefaultConnection")
                 )
             );
+            builder.Services.AddScoped<IServiceProduct, ServiceProduct>();
             builder.Services.AddControllersWithViews();
             var app = builder.Build();
 
